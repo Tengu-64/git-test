@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('./partials/linkCss.ejs') %>
+    <title>Произошла ошибка</title>
+</head>
+<body>
+    <!-- Wrapper -->
+			<div id="wrapper">
+
+				 
+                <header id="header" class="alt">
+                <h1>ERROR 404</h1>
+                </header>
+
+                <%- include('./partials/menu.ejs') %>	
+
+            <!-- Main -->
+                <div id="main">
+
+                    <!-- Introduction -->
+                        <section id="intro" class="main">
+                            <header class="major">
+                                <h2>Такая страница не найдена :(</h2>
+                            </header>
+                            <p>К сожалению, запрашиваемая страница не найдена. Возможно, вы перешли по ссылке, в которой была допущена ошибка, или ресурс был удален. Попробуйте перейти на главную страницу.
+                            </p>
+                        </section>
+
+                    
+
+                </div>
+
+        <%- include('./partials/footer.ejs') %>		
+
+        </div>
+
+    <!-- Scripts -->
+        <%- include('partials/script.ejs') %>
+</body>
+</html>

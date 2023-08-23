@@ -2,11 +2,10 @@
 
 <html>
 	<head>
-		<title>MangaMyLife - главная страница</title>
+		<%- include('./partials/title.ejs') %>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="/css/main.css" />
-		<noscript><link rel="stylesheet" href="/css/noscript.css" /></noscript>
+		<%- include('./partials/linkCss.ejs') %>
 	</head>
 	<body class="is-preload">
 
@@ -14,9 +13,7 @@
 			<div id="wrapper">
 
 				 
-					<header id="header" class="alt">
-					<h1>MangaMyLife - манга Дзюндзи Ито</h1>
-					</header>
+					<%- include('./partials/header.ejs') %>
 
 					<%- include('./partials/menu.ejs') %>	
 
@@ -39,7 +36,7 @@
 										</header>
 										<p>Дзюндзи Ито (яп. 伊藤 潤二) — японский мангака, работающий в жанре ужасов. Ито начал рисовать мангу в возрасте 4 лет, черпая вдохновение из работ, которые он читал в журналах. Он продолжал рисовать в качестве хобби, пока не стал зубным техником в 1984 году. Но сначала это было просто хобби, пока он работал зубным техником.</p>
 										<ul class="actions">
-											<li><a href="generic.html" class="button">Подробнее о биографии</a></li>
+											<li><a href="/biography" class="button">Подробнее о биографии</a></li>
 										</ul>
 									</div>
 									<span class="image"><img src="/ito.jpg" alt="" wigth='318px' height='318px'/></span>
@@ -54,15 +51,15 @@
 									<h2>На сайте вы можете</h2>
 								</header>
 								<ul class="features">
-									<li><a href="manga.html">
+									<li><a href="#">
 										<span class="image"><img src="/mng.jpg" alt="" wigth='193.8px' height='193.8px'/></span>
 										<h3>купить классику хоррор-манги</h3>
 									</a></li>
-									<li><a href="fanArt.html">
+									<li><a href="#">
 										<span class="image"><img src="/fan-art.jpg" alt="" wigth='193.8px' height='193.8px'/></span>
 										<h3>почитать посты и посмотреть фан-арты</h3>	
 									</a></li>
-									<li><a href="merch.html">
+									<li><a href="#">
 										<span class="image"><img src="/zn.png" alt="" wigth='193.8px' height='193.8px'/></span>
 										<h3>купить мерч </h3>	
 									</a></li>
