@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <%- include('./partials/title.ejs') %>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <%- include('./partials/linkCss.ejs') %>
+            <style>
+                .frm{
+		padding-top:5%;
+		padding-bottom:5%;
+		margin-left: 35%;
+	}
+            </style>
+</head>
+
+<body class="is-preload">
+    <div id="wrapper">
+        <%- include('./partials/header.ejs') %>
+            <%- include('./partials/menu.ejs') %>
+                <div id="main">
+                    
+                    <form method="post" action="user-data" class="frm">
+                        <div class="row gtr-uniform">
+                            <div class="col-6 col-12-xsmall">
+                                <input type="email" name="email" placeholder="email" />
+                            </div> <br/>
+                            <div class="col-6 col-12-xsmall">
+                                <input type="text" name="nick"  placeholder="пароль" />
+                            </div>  
+                    
+                            <div class="col-12">
+                                <ul class="actions">
+                                    <li><input type="submit" value="войти" class="primary" style="background-color:rgb(177, 177, 177)" /></li>
+                                    <li><a href="/registration" class="button" style="background-color:limegreen">зарегистрироваться</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <%- include('./partials/footer.ejs') %>
+    </div>
+    <%- include('partials/script.ejs') %>
+</body>
+
+</html>
