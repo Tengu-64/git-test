@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%- include('./partials/linkCss.ejs') %>
+    {{> linkCss}}
     <title>Произошла ошибка</title>
     <style>
         .img{
@@ -23,7 +23,7 @@
                 <h1>ERROR 404</h1>
                 </header>
 
-                <%- include('./partials/menu.ejs') %>	
+                {{> menu}}	
 
             <!-- Main -->
                 <div id="main">
@@ -34,7 +34,7 @@
                                 <h2>Такая страница не найдена :(</h2>
                             </header>
                             <p>К сожалению, запрашиваемая страница не найдена. Возможно, вы перешли по ссылке, в которой была допущена ошибка, или ресурс был удален. Попробуйте перейти на главную страницу.</p>
-                            <img src="/err.jpg" class="img">
+                            <img src="static/err.jpg" class="img">
 
                         </section>
 
@@ -42,11 +42,11 @@
 
                 </div>
 
-        <%- include('./partials/footer.ejs') %>		
+        {{> footer}}		
 
         </div>
 
     <!-- Scripts -->
-        <%- include('partials/script.ejs') %>
+        {{> script}}
 </body>
 </html>

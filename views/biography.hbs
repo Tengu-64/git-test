@@ -2,10 +2,10 @@
 
 <html>
 	<head>
-		<%- include('./partials/title.ejs') %>
+		{{> title}}
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<%- include('./partials/linkCss.ejs') %>
+		{{> linkCss}}
 	</head>
 	<body class="is-preload">
 
@@ -13,9 +13,9 @@
 			<div id="wrapper">
 
 				 
-					<%- include('./partials/header.ejs') %>
+					{{> header}}
 
-					<%- include('./partials/menu.ejs') %>	
+					{{> menu}}	
 
 				<!-- Main -->
 					<div id="main">
@@ -45,11 +45,11 @@
 
 					</div>
 
-			<%- include('./partials/footer.ejs') %>		
+			{{> footer}}		
 
 			</div>
 
 		<!-- Scripts -->
-			<%- include('partials/script.ejs') %>
+			{{> script}}
 	</body>
 </html>

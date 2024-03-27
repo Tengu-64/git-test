@@ -2,10 +2,10 @@
 <html>
 
 <head>
-    <%- include('./partials/title.ejs') %>
+    {{> title}}
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <%- include('./partials/linkCss.ejs') %>
+        {{> linkCss}}
             <style>
                 .frm{
 		padding-top:5%;
@@ -17,11 +17,11 @@
 
 <body class="is-preload">
     <div id="wrapper">
-        <%- include('./partials/header.ejs') %>
-            <%- include('./partials/menu.ejs') %>
+        {{> header}}
+            {{> menu}}
                 <div id="main">
                     
-                    <form method="post" action="user-data" class="frm">
+                    <form method="post" class="frm">
                         <div class="row gtr-uniform">
                             <div class="col-6 col-12-xsmall">
                                 <input type="email" name="email" placeholder="email" />
@@ -40,9 +40,9 @@
                     </form>
 
                 </div>
-                <%- include('./partials/footer.ejs') %>
+                {{> footer}}
     </div>
-    <%- include('partials/script.ejs') %>
+    {{> script}}
 </body>
 
 </html>

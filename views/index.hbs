@@ -2,10 +2,12 @@
 
 <html>
 	<head>
-		<%- include('./partials/title.ejs') %>
+		{{!-- <%- include('./partials/title.ejs') %> --}}
+		{{>title}}
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<%- include('./partials/linkCss.ejs') %>
+		{{!-- <%- include('./partials/linkCss.ejs') %> --}}
+		{{> linkCss}}
 	</head>
 	<body class="is-preload">
 
@@ -13,9 +15,10 @@
 			<div id="wrapper">
 
 				 
-					<%- include('./partials/header.ejs') %>
+					{{> header}}
 
-					<%- include('./partials/menu.ejs') %>	
+					{{!-- <%- include('./partials/menu.ejs') %>	 --}}
+					{{> menu}}
 
 				<!-- Main -->
 					<div id="main">
@@ -39,7 +42,7 @@
 											<li><a href="/biography" class="button">Подробнее о биографии</a></li>
 										</ul>
 									</div>
-									<span class="image"><img src="/ito.jpg" alt="" wigth='318px' height='318px'/></span>
+									<span class="image"><img src="/static/ito.jpg" alt="" wigth='318px' height='318px'/></span>
 								</div>
 								
 
@@ -51,16 +54,16 @@
 									<h2>На сайте вы можете</h2>
 								</header>
 								<ul class="features">
-									<li><a href="#">
-										<span class="image"><img src="/mng.jpg" alt="" wigth='193.8px' height='193.8px'/></span>
+									<li><a href="/product/manga">
+										<span class="image"><img src="static/mng.jpg" alt="" wigth='193.8px' height='193.8px'/></span>
 										<h3>купить классику хоррор-манги</h3>
 									</a></li>
-									<li><a href="#">
-										<span class="image"><img src="/fan-art.jpg" alt="" wigth='193.8px' height='193.8px'/></span>
+									<li><a href="/topic">
+										<span class="image"><img src="static/fan-art.jpg" alt="" wigth='193.8px' height='193.8px'/></span>
 										<h3>почитать посты и посмотреть фан-арты</h3>	
 									</a></li>
-									<li><a href="#">
-										<span class="image"><img src="/zn.png" alt="" wigth='193.8px' height='193.8px'/></span>
+									<li><a href="/product/merch">
+										<span class="image"><img src="static/zn.png" alt="" wigth='193.8px' height='193.8px'/></span>
 										<h3>купить мерч </h3>	
 									</a></li>
 								</ul>
@@ -70,11 +73,11 @@
 
 					</div>
 
-			<%- include('./partials/footer.ejs') %>		
+			{{> footer}}		
 
 			</div>
 
 		<!-- Scripts -->
-			<%- include('partials/script.ejs') %>
+			{{> script}}
 	</body>
 </html>
