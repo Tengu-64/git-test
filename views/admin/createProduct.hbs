@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <p>{{title}}</p>
+    <form action="/admin/create" method="post">
+        <label for="">name:</label><input type="text" name="name"><br>
+        <label for="">description:<input type="text" name="description"></label><br>
+        <label for="">price:</label><input type="text" name="price"><br>
+        <label for="">image:</label><input type="text" name="image"><br>
+        {{!-- <label for=""><input type="" name="category"></label> --}}
+        <select name="category">
+            {{#each category}}
+            <option value="{{this.id}}" name="{{this.id}}">{{this.category}}</option>
+            {{/each}}
+        </select><br>
+        <input type="submit" value="submit">
+    </form>
+</body>
+
+</html>

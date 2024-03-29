@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{> title}}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    {{> linkCss}}
+</head>
+
+<body class="is-preload">
+    <div id="wrapper">
+        {{> header}}
+
+        {{> menu}}
+
+        <!-- Main -->
+        <div id="main">
+            <section id="intro" class="main">
+
+            <header class="major">
+                <h2>{{name}} - {{price}} ₽ </h2>
+            </header>
+            
+            <ul class="features">
+                <li>
+                    <span class="image"><img src="/{{image}}" alt="" wigth='500px' height='500px' /></span>
+                </li>
+            </ul>
+            <p> {{description}}</p>
+</section>
+
+        </div>
+        {{> footer}}
+    </div>
+    {{> script}}
+    {{!-- <h1>{{name}} - {{price}} рублей</h1>
+    <img src="/{{image}}" alt="">
+    <p>{{description}}</p> --}}
+</body>
+
+</html>

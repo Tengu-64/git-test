@@ -26,9 +26,10 @@ async function startApp() {
 
 const indexRouter = require('./routes/indexRouter')
 const productRouter = require('./routes/productRouter')
+const adminRouter = require('./routes/adminRouter')
 app.use('/', indexRouter)
 app.use('/product', productRouter)
-
+app.use('/admin', adminRouter)
 
 startApp()
 

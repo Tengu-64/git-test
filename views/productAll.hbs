@@ -1,11 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}}</title>
+    {{> title}}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    {{> linkCss}}
 </head>
-<body>
-    
+
+<body class="is-preload">
+    <div id="wrapper">
+        {{> header}}
+        {{> menu}}
+        <div id="main" style="margin-top: 15px;">
+
+
+            <ul class="features">
+                {{#each product}}
+                <li><a href="/product/{{this.id}}">
+                        <span class="image"><img src="/{{this.image}}" alt="" wigth='193.8px' height='193.8px' /></span>
+                        <h4>{{this.name}}</h4>
+                    </a></li>
+                {{/each}}
+            </ul>
+
+
+        </div>
+        {{> footer}}
+    </div>
+    {{> script}}
 </body>
+
 </html>
