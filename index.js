@@ -24,6 +24,8 @@ async function startApp() {
     }
 }
 
+startApp()
+
 const indexRouter = require('./routes/indexRouter')
 const productRouter = require('./routes/productRouter')
 const adminRouter = require('./routes/adminRouter')
@@ -31,7 +33,7 @@ app.use('/', indexRouter)
 app.use('/product', productRouter)
 app.use('/admin', adminRouter)
 
-startApp()
+
 
 app.use((req, res,) => {
     const data_err = { 'title': 'ERROR404' }
