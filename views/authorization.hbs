@@ -20,24 +20,39 @@
         {{> header}}
             {{> menu}}
                 <div id="main">
-                    
                     <form method="post" class="frm">
-                        <div class="row gtr-uniform">
-                            <div class="col-6 col-12-xsmall">
-                                <input type="email" name="email" placeholder="email" />
-                            </div> <br/>
-                            <div class="col-6 col-12-xsmall">
-                                <input type="text" name="nick"  placeholder="пароль" />
+                        {{!-- <div class="row gtr-uniform"> --}}
+                            
+                            <div class="col-12">
+                                <ul class="actions">
+                                    <li><input type="email" name="email" placeholder="email" /></li>
+                                </ul>
+                               
+                            </div>
+
+                            <div class="col-12">
+                                 <ul class="actions">
+                                    <li><input type="text" name="password"  placeholder="пароль" /></li>
+                                 </ul>
+                                
                             </div>  
                     
                             <div class="col-12">
                                 <ul class="actions">
                                     <li><input type="submit" value="войти" class="primary" style="background-color:limegreen"/></li>
-                                    <li><a href="/registration" class="button" style="background-color:rgb(106, 136, 235)">зарегистрироваться</a></li>
+                                    {{!-- <li><a href="/registration" class="button" style="background-color:rgb(106, 136, 235)">зарегистрироваться</a></li> --}}
                                 </ul>
                             </div>
-                        </div>
+
+                             <div class="col-12">
+                                <a href="/registration" style="color:rgb(62, 101, 228)">нет аккаунта?</a>
+                             </div>
+                             
+                        {{!-- </div> --}}
                     </form>
+                    {{#if errVal}}
+                        <div style="background-color: rgb(151, 58, 58); text-align:center; color:black">{{err}}</div>
+                    {{/if}}
 
                 </div>
                 {{> footer}}

@@ -20,16 +20,25 @@
         {{> header}}
             {{> menu}}
                 <div id="main">
-                    <form method="post" action="user-data" class="frm">
-                        <div class="row gtr-uniform">
-                            <div class="col-6 col-12-xsmall">
-                                <input type="email" name="email" placeholder=" Ваш email" />
-                            </div> <br>
-                            <div class="col-6 col-12-xsmall">
-                                <input type="text" name="nick" placeholder="Придумайте ник" />
-                            </div> <br />
-                            <div class="col-6 col-12-xsmall">
-                                <input type="text" name="password" placeholder="Придумайте пароль" />
+                    <form method="post" action="/registration" class="frm">
+                        {{!-- <div class="row gtr-uniform"> --}}
+
+                            <div class="col-12">
+                                <ul class="actions">
+                                    <li><input type="email" name="email" placeholder=" Ваш email" /></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-12">
+                                <ul class="actions">
+                                    <li><input type="text" name="name" placeholder="Придумайте ник" /></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-12">
+                                <ul class="actions">
+                                    <li><input type="text" name="password" placeholder="Придумайте пароль" /></li>
+                                </ul>
                             </div>
 
                             <div class="col-12">
@@ -37,8 +46,11 @@
                                     <li><input type="submit" value="зарегистрироваться" class="button" style="background-color:limegreen"></li>
                                 </ul>
                             </div>
-                        </div>
+                        {{!-- </div> --}}
                     </form>
+                    {{#if err}}
+                    <div style="background-color: rgb(166, 2, 2);">{{errVal}}</div>
+                    {{/if}}
                 </div>
                 {{> footer}}
     </div>

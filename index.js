@@ -4,14 +4,14 @@ require('dotenv').config()
 const PORT = process.env.PORT
 const sequelize = require('./db')
 const hbs = require('hbs')
-
+const cookieParser = require('cookie-parser')
 
 app.set('view engine', 'hbs')
 hbs.registerPartials(__dirname + '/views/partials')
 app.use(express.static('assets'))
 app.use(express.static('images'))
 app.use(express.urlencoded({ extended: false }))
-
+app.use(cookieParser(process.env.SECRET_KEY))
 
 async function startApp() {
     try {

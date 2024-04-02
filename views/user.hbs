@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{> title}}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    {{> linkCss}}
+</head>
+
+<body class="is-preload">
+    <div id="wrapper">
+        {{> header}}
+        {{> menu}}
+        <!-- Main -->
+        <div id="main">
+            <script>
+                function logout() {
+                    let cookies = document.cookie.split(";");
+                    for (i = 0; i < cookies.length; i++) {
+                        let cookie = cookies[i]
+                        let eqPos = cookie.indexOf("=")
+                        let name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;0"
+                        document.cookie = name + "=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT;0"
+                    }
+                    window.location.href = '/authorization'
+                }
+
+                function redirect(href) {
+                    window.location.href = `${href}`
+                }
+            </script>
+            <section id="intro" class="main">
+                <header class="major">
+                    <h2>Мои данные</h2>
+                </header>
+                {{!-- <h1>id = {{user.id}}</h1> --}}
+                <p>Пользователь {{user.name}}</p>
+                <p>Email: {{user.email}}</p>
+                <p>пароль: {{user.password}}</p>
+                {{!-- <h1>роль: {{user.role}}</h1> --}}
+
+                 <div class="col-12">
+                    <ul class="actions">
+                        <li><input type="button" value="корзина" class="button"
+                                style="background-color:rgb(255, 255, 255)" onclick="redirect('/busket')"></li>
+                    </ul>
+                </div>
+
+                 <div class="col-12">
+                    <ul class="actions">
+                        <li><input type="button" value="понравившиеся товары" class="button"
+                                style="background-color:rgb(255, 255, 255)" onclick="redirect('/like-products')"></li>
+                    </ul>
+                </div>
+
+                <div class="col-12">
+                    <ul class="actions">
+                        <li><input type="button" value="выйти из аккаунта" class="button"
+                                style="background-color:rgb(255, 0, 0)" onclick="logout()"></li>
+                    </ul>
+                </div>
+                
+                </div>
+            </section>
+
+        </div>
+        {{> footer}}
+    </div>
+    {{> script}}
+</body>
+
+</html>

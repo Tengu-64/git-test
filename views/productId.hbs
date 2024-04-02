@@ -18,17 +18,30 @@
         <div id="main">
             <section id="intro" class="main">
 
-            <header class="major">
-                <h2>{{name}} - {{price}} ₽ </h2>
-            </header>
-            
-            <ul class="features">
-                <li>
-                    <span class="image"><img src="/{{image}}" alt="" wigth='500px' height='500px' /></span>
-                </li>
-            </ul>
-            <p> {{description}}</p>
-</section>
+                <header class="major">
+                    <h2>{{name}} - {{price}} ₽</h2>
+                </header>
+
+                <ul class="features">
+                    <li>
+                        <span class="image"><img src="/{{image}}" alt="" wigth='500px' height='500px' /></span>
+                    </li>
+                </ul>
+                <p> {{description}}</p>
+
+                <div class="col-12">
+                    <ul class="actions">
+                        <li><input type="button" value="в корзину" class="button"
+                                style="background-color:rgb(255, 255, 255)" onclick="redirect('/busket')"></li>
+                    </ul>
+                </div>
+                <div class="col-12">
+                    <ul class="actions">
+                        <li><input type="button" value="в понравившиеся" class="button"
+                                style="background-color:rgb(255, 255, 255)" onclick="redirect('/busket')"></li>
+                    </ul>
+                </div>
+            </section>
 
         </div>
         {{> footer}}

@@ -1,12 +1,34 @@
+<script>
+//    function getCookie(name) {
+  //let cookieArr = document.cookie.split("; ");
+  //for(let i = 0; i &lt; cookieArr.length; i++) {
+    //let cookiePair = cookieArr[i].split("=");
+    //if (name == cookiePair[0]) {
+      //return cookiePair[1];
+    //}
+  //}
+  //return null;
+//} 
+function getCookie(name) {
+  let cookie = document.cookie.split('; ').find(row => row.startsWith(name + '='));
+  return cookie ? cookie.split('=')[1] : null;
+}
+</script>
+
 <nav id="nav">
     <ul>
-        <!--<li><a href="lg"><img src = ""></a></li>-->
         <li><a href="/" class="active">Главная страница</a></li>
         <li><a href="/product">все товары</a></li>
         <li><a href="/product/manga">манга</a></li>
         <li><a href="/product/merch">одежда и мерч</a></li>
         <li><a href="/posts">статьи</a></li>
-        <li><a href="/authorization">авторизация</a></li>
+        <script>
+            if(getCookie("id")){
+                document.write('<li><a href="/user/1">профиль</a></li>')
+            } else{
+                document.write('<li><a href="/authorization">авторизация</a></li>')
+            }
+        </script>
         <li><a href="#footer">контакты</a></li>
     </ul>
 </nav>
