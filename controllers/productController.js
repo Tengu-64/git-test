@@ -1,5 +1,4 @@
-const { where } = require('sequelize')
-const { Product } = require('../models/models')
+const { Product, Basket } = require('../models/models')
 
 const productAll = (req, res) => {
     Product.findAll().then(prod => {
@@ -13,11 +12,31 @@ const productId = (req, res) => {
         if (!productData) {
             res.render('error', { 'title': 'ERROR404' })
         }
-        else{
-           res.render('productId', { title: productData.name, name: productData.name, description: productData.description, price: productData.price, image: productData.image }) 
+        else {
+            if (req.cookies.id) {
+                Basket.findAll({ where: { userId: req.cookies.id, productId: req.params.id } }).then(data => {
+                    if (data.length > 0) {
+                        res.render('productId', { title: productData.name, name: productData.name, description: productData.description, price: productData.price, image: productData.image, id: req.params.id, basketButton: true, productInBasket: true })
+                    } else {
+                        res.render('productId', { title: productData.name, name: productData.name, description: productData.description, price: productData.price, image: productData.image, id: req.params.id, basketButton: true, productInBasket: false })
+                    }
+                })
+            } else {
+                res.render('productId', { title: productData.name, name: productData.name, description: productData.description, price: productData.price, image: productData.image, id: req.params.id, basketButton: false })
+            }
         }
     })
 }
+
+const addBasket = (req, res) => {
+    Basket.create({
+        userId: req.cookies.id,
+        productId: req.params.id
+    }).then(() => {
+        res.redirect(`/product/${req.params.id}`)
+    })
+}
+
 
 const Manga = (req, res) => {
     Product.findAll({ where: { productCategoryId: 1 } }).then(prod => {
@@ -31,4 +50,4 @@ const Merch = (req, res) => {
     })
 }
 
-module.exports = { productAll, productId, Manga, Merch }
+module.exports = { productAll, productId, Manga, Merch, addBasket }

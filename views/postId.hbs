@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{> title}}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    {{> linkCss}}
+</head>
+
+<body class="is-preload">
+    <div id="wrapper">
+
+        {{> header}}
+        {{> menu}}
+
+        <div id="main">
+            <section id="intro" class="main">
+                <header class="major">
+                    <h2>{{post.title}}</h2>
+                </header>
+                <img src="/{{post.img}}" alt="">
+                <p>{{post.text}}</p>
+            </section>
+        </div>
+        {{> footer}}
+    </div>
+    {{> script}}
+
+
+    {{post.title}}
+    {{post.text}}
+</body>
+
+</html>

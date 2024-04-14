@@ -25,19 +25,19 @@
 
                             <div class="col-12">
                                 <ul class="actions">
-                                    <li><input type="email" name="email" placeholder=" Ваш email" /></li>
+                                    <li><input type="email" name="email" placeholder="Email" /></li>
                                 </ul>
                             </div>
 
                             <div class="col-12">
                                 <ul class="actions">
-                                    <li><input type="text" name="name" placeholder="Придумайте ник" /></li>
+                                    <li><input type="text" name="name" placeholder="Имя" /></li>
                                 </ul>
                             </div>
 
                             <div class="col-12">
                                 <ul class="actions">
-                                    <li><input type="text" name="password" placeholder="Придумайте пароль" /></li>
+                                    <li><input type="text" name="password" placeholder="Пароль" /></li>
                                 </ul>
                             </div>
 
@@ -48,8 +48,13 @@
                             </div>
                         {{!-- </div> --}}
                     </form>
-                    {{#if err}}
-                    <div style="background-color: rgb(166, 2, 2);">{{errVal}}</div>
+                    {{#if errVal}}
+                        {{#each err}}
+                    <div style="background-color: rgb(255, 0, 0);">{{msg}}</div>
+                        {{/each}}
+                    {{/if}}
+                    {{#if userExists}}
+                        <div style="background-color: rgb(255, 0, 0);">{{userErr}}</div>
                     {{/if}}
                 </div>
                 {{> footer}}

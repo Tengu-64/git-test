@@ -21,10 +21,14 @@ function getCookie(name) {
         <li><a href="/product">все товары</a></li>
         <li><a href="/product/manga">манга</a></li>
         <li><a href="/product/merch">одежда и мерч</a></li>
-        <li><a href="/posts">статьи</a></li>
+        <li><a href="/post">статьи</a></li>
         <script>
             if(getCookie("id")){
-                document.write('<li><a href="/user/1">профиль</a></li>')
+                const ID = getCookie("id") 
+                //alert(ID)
+                document.write("<li><a id='profile' href=''>профиль</a></li>")
+                document.getElementById("profile").href = `user/${ID}`
+
             } else{
                 document.write('<li><a href="/authorization">авторизация</a></li>')
             }

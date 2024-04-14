@@ -28,24 +28,48 @@
                     </li>
                 </ul>
                 <p> {{description}}</p>
-
+                {{#if basketButton}}
                 <div class="col-12">
-                    <ul class="actions">
-                        <li><input type="button" value="в корзину" class="button"
-                                style="background-color:rgb(255, 255, 255)" onclick="redirect('/busket')"></li>
+                    <form method="post" action="/product/{{id}}">
+                    <ul class="actions" >
+                        <li><input type="submit" value="в корзину" class="button" id="btn"
+                                style="background-color:rgb(255, 255, 255)" ></li>
                     </ul>
+                    </form>
+                    
+                {{else}}
+                <a href="/authorization">Авторизируйтесь чтобы отложить товар в корзину</a>
+                {{/if}}
                 </div>
-                <div class="col-12">
+                {{!-- <div class="col-12">
+                    <form method="post" action="/product/{{id}}">
                     <ul class="actions">
-                        <li><input type="button" value="в понравившиеся" class="button"
-                                style="background-color:rgb(255, 255, 255)" onclick="redirect('/busket')"></li>
+                        <li><input type="submit" value="в понравившиеся" class="button"
+                                style="background-color:rgb(255, 255, 255)" ></li>
                     </ul>
-                </div>
+                    </form>
+                </div> --}}
+                {{#if productInBasket}}
+                    
+                    <a href="/basket" style="color: green;">товар отложен в корзину</a>
+                    <script>
+                        let btn = document.getElementById('btn')
+                        btn.remove()
+                    </script>
+                    {{!-- <script>
+                        let btn = document.getElementById('btn')
+                        btn.value = 'товар отложен в корзину'
+                        btn.setAttribute('disabled', '');
+                        btn.style.background = "red";
+                        btn.style.color = "black";
+                    </script> --}}
+                {{/if}}
             </section>
 
         </div>
         {{> footer}}
     </div>
+
     {{> script}}
     {{!-- <h1>{{name}} - {{price}} рублей</h1>
     <img src="/{{image}}" alt="">

@@ -9,11 +9,11 @@
 
 <body>
     <p>{{title}}</p>
-    <form action="/admin/create" method="post">
+    <form action="/admin/create" method="post" enctype="multipart/form-data">
         <label for="">name:</label><input type="text" name="name"><br>
         <label for="">description:<input type="text" name="description"></label><br>
         <label for="">price:</label><input type="text" name="price"><br>
-        <label for="">image:</label><input type="text" name="image"><br>
+        <label for="">image:</label><input type="file" name="image"><br>
         {{!-- <label for=""><input type="" name="category"></label> --}}
         <select name="category">
             {{#each category}}

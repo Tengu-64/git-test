@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{> title}}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    {{> linkCss}}
+</head>
+
+<body class="is-preload">
+    <div id="wrapper">
+
+        {{> header}}
+        {{> menu}}
+
+        <div id="main">
+            {{#if isEmpty}}
+                <h3 style="text-align: center;">У вас пока нет покупок</h3>
+           
+            {{else}}
+                <table>
+                {{#each order}}
+                    <tr>
+                        <td>
+                        <a href="/product/{{this.id}}">
+                    <span class="image"><img src="/{{this.image}}" alt="" wigth='193.8px' height='193.8px' /></span>
+                    <h4>{{this.name}}</h4>
+                    </td>
+                    <td>{{this.price}} ₽</td>
+                    <td style="color: green;">{{this.status}}</td>
+                    <td>{{this.adress}}</td>
+                    </tr>
+                {{/each}} 
+                </table>
+                
+             {{/if}}
+        </div>
+        {{> footer}}
+    </div>
+    {{> script}}
+
+</body>
+
+</html>

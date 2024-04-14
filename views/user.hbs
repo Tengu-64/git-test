@@ -41,19 +41,41 @@
                 <p>пароль: {{user.password}}</p>
                 {{!-- <h1>роль: {{user.role}}</h1> --}}
 
-                 <div class="col-12">
+                <div class="col-12">
                     <ul class="actions">
                         <li><input type="button" value="корзина" class="button"
-                                style="background-color:rgb(255, 255, 255)" onclick="redirect('/busket')"></li>
+                                style="background-color:rgb(255, 255, 255)" onclick="redirect('/basket')"></li>
                     </ul>
                 </div>
 
-                 <div class="col-12">
+                <div class="col-12">
                     <ul class="actions">
-                        <li><input type="button" value="понравившиеся товары" class="button"
-                                style="background-color:rgb(255, 255, 255)" onclick="redirect('/like-products')"></li>
+                        <li><input type="button" value="заказы" class="button"
+                                style="background-color:rgb(255, 255, 255)" onclick="redirect('/order')"></li>
                     </ul>
                 </div>
+
+                {{!-- <div class="col-12">
+                    <ul class="actions">
+                        <li><input type="button" value="создать пост" class="button"
+                                style="background-color:rgb(255, 255, 255)" onclick="redirect('/post')"></li>
+                    </ul>
+                </div> --}}
+
+                {{!-- <div class="col-12">
+                    <ul class="actions">
+                        <li><input type="button" value="понравившиеся товары" class="button"
+                                style="background-color:rgb(0, 18, 182)" onclick="redirect('/like-products')"></li>
+                    </ul>
+                </div> --}}
+                {{#if adminAccess}}
+                     <div class="col-12">
+                    <ul class="actions">
+                        <li><input type="button" value="панель администратора" class="button"
+                                style="background-color:rgb(0, 18, 182)" onclick="redirect('/admin')"></li>
+                    </ul>
+                </div>
+                {{/if}}
 
                 <div class="col-12">
                     <ul class="actions">
@@ -61,12 +83,12 @@
                                 style="background-color:rgb(255, 0, 0)" onclick="logout()"></li>
                     </ul>
                 </div>
-                
-                </div>
-            </section>
 
         </div>
-        {{> footer}}
+        </section>
+
+    </div>
+    {{> footer}}
     </div>
     {{> script}}
 </body>

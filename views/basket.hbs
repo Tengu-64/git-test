@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{> title}}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    {{> linkCss}}
+</head>
+
+<body class="is-preload">
+    <div id="wrapper">
+
+        {{> header}}
+        {{> menu}}
+
+        <div id="main" style="margin-top: 15px;">
+            {{#if productAvability}}
+            <table>
+            {{#each products}}
+                <tr>
+                    <td>
+                        <a href="/product/{{this.id}}">
+                    <span class="image"><img src="/{{this.image}}" alt="" wigth='193.8px' height='193.8px' /></span>
+                    <h4>{{this.name}}</h4>
+                    </td>
+                    <td>{{this.price}} ₽</td>
+                    <td>
+                        <form action="/basket/deleteproduct/{{this.id}}" method="post">
+                            <input  hidden="true" name="productId" value="{{this.id}}">
+                            <input type="submit" value="удалить">
+                        </form>
+                    </td>
+                </tr>
+                </a></li>
+            {{/each}}
+            </table>
+           <h4>Выберите пункт выдачи заказа:</h4>
+           <form action="/basket/createOrder" method="post">
+
+            <select name="PIP" id="">
+                 {{#each PIP}}
+                <option name="{{this.id}}" value="{{this.id}}">{{this.adress}}</option>
+                {{/each}}
+            </select>
+            
+            <p style="text-align: center; margin: 10px;">Итого {{sumBasket}} ₽ <input type="submit" value="заказать"></p>
+            </form>
+            {{else}}
+                <h3 style="text-align: center;">Корзина пуста</h3>
+            {{/if}}
+
+            
+        </div>
+
+        {{> footer}}
+    </div>
+    {{> script}}
+
+</body>
+
+</html>

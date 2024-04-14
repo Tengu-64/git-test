@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{> title}}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    {{> linkCss}}
+</head>
+
+<body class="is-preload">
+
+    <div id="wrapper">
+
+        {{> header}}
+        {{> menu}}
+
+        <div id="main">
+
+            {{#if postNotFound}}
+                <h2 style="text-align: center;">Пока нет постов</h2>
+            {{else}}
+            <section id="intro" class="main">
+                <header class="major">
+                    <h2>Посты:</h2>      
+                </header>  
+                {{#each posts}}
+                <a href="/post/{{this.id}}">{{this.title}}</a> <br>
+                {{/each}}
+                {{/if}}
+            </section>
+            
+            
+        </div>
+
+        {{> footer}}
+
+    </div>
+
+    {{> script}}
+
+
+
+</body>
+
+</html>

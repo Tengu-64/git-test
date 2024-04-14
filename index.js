@@ -5,6 +5,7 @@ const PORT = process.env.PORT
 const sequelize = require('./db')
 const hbs = require('hbs')
 const cookieParser = require('cookie-parser')
+const multer = require('multer')
 
 app.set('view engine', 'hbs')
 hbs.registerPartials(__dirname + '/views/partials')
@@ -12,6 +13,18 @@ app.use(express.static('assets'))
 app.use(express.static('images'))
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser(process.env.SECRET_KEY))
+
+
+const storageProductsConfig = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "images/products");
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.originalname);
+    }
+});
+
+app.use(multer({storage:storageProductsConfig}).single("image"));
 
 async function startApp() {
     try {
@@ -32,6 +45,7 @@ const adminRouter = require('./routes/adminRouter')
 app.use('/', indexRouter)
 app.use('/product', productRouter)
 app.use('/admin', adminRouter)
+
 
 
 
